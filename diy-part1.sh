@@ -19,6 +19,5 @@
 
 # Add luci-app-passwall
 echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-#svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-echo 'src-git luci-app-passwall https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall' >>feeds.conf.default
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
 
