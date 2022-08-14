@@ -19,10 +19,10 @@
 
 # Add luci-app-passwall
 echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-echo 'src-git luci-app-passwall https://github.com/xiaorouji/openwrt-passwall/tree/luci/luci-app-passwall' >>feeds.conf.default
+svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
 
 #Add luci-app-filebrowser
-echo 'src-git filebrowser https://github.com/kenzok8/openwrt-packages/tree/master/filebrowser' >>feeds.conf.default
-echo 'src-git luci-app-filebrowser https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-filebrowser' >>feeds.conf.default
+echo 'src-git filebrowser https://github.com/kenzok8/openwrt-packages/filebrowser' >>feeds.conf.default
+svn co https://github.com/kenzok8/openwrt-packages/luci-app-filebrowser
 
 
