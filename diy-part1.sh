@@ -49,3 +49,7 @@ export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk 
 export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
 popd
+
+#Add luci-app-filebrowser
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages/tree/master/filebrowser
+svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-filebrowser
