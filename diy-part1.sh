@@ -17,32 +17,13 @@
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
-
-# Add cpufreq
-rm -rf ./feeds/luci/applications/luci-app-cpufreq 
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-cpufreq ./feeds/luci/applications/luci-app-cpufreq
-ln -sf ./feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
-sed -i 's,1608,1800,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/10-cpufreq
-sed -i 's,2016,2208,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/10-cpufreq
-sed -i 's,1512,1608,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/10-cpufreq
-rm -rf ./target/linux/rockchip/armv8/base-files/etc/hotplug.d/usb
-
 # Add luci-app-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/tree/luci/luci-app-passwall
-
-# Add luci-app-dockerman
-rm -rf ../../customfeeds/luci/collections/luci-lib-docker
-rm -rf ../../customfeeds/luci/applications/luci-app-docker
-rm -rf ../../customfeeds/luci/applications/luci-app-dockerman
-git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
-git clone --depth=1 https://github.com/lisaac/luci-lib-docker
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+echo 'src-git luci-app-passwall https://github.com/xiaorouji/openwrt-passwall/tree/luci/luci-app-passwall' >>feeds.conf.default
 
 #Add luci-app-filebrowser
-git clone --depth=1 https://github.com/kenzok8/openwrt-packages/tree/master/filebrowser
-svn co https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-filebrowser
-# Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
+echo 'src-git filebrowser https://github.com/kenzok8/openwrt-packages/tree/master/filebrowser' >>feeds.conf.default
+echo 'src-git luci-app-filebrowser https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-filebrowser' >>feeds.conf.default
 
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
